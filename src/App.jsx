@@ -19,39 +19,35 @@ const products = [
 ];
 
 function App() {
-  const [showPopup, setShowPopup] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const openPopup = (product) => {
+  const handleOpen = (product) => {
     setSelectedProduct(product);
-    setShowPopup(true);
   };
 
-  const closePopup = () => {
-    setShowPopup(false);
+  const handleClose = () => {
     setSelectedProduct(null);
   };
 
   return (
     <div className="App">
-      <h1>KL University Store</h1>
+      <h1>product list</h1>
       
       <div className="product-list">
         {products.map(product => (
-          <div key={product.id} className="product-card" onClick={() => openPopup(product)}>
+          <div key={product.id} className="product-card" onClick={() => handleOpen(product)}>
             <h3>{product.name}</h3>
             <p>{product.price}</p>
             <p>{product.shortDesc}</p>
           </div>
         ))}
       </div>
-
-      {showPopup && (
-        <div className="popup-overlay" onClick={closePopup}>
+      {selectedProduct && (
+        <div className="popup-overlay" onClick={handleClose}>
           <div className="popup" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={closePopup}>X</button>
+            <button onClick={handleClose}>X</button>
             <h2>{selectedProduct.name}</h2>
-            <p className="price">{selectedProduct.price}</p>
+            <p>{selectedProduct.price}</p>
             <p>{selectedProduct.fullDesc}</p>
           </div>
         </div>

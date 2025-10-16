@@ -2,16 +2,7 @@
   padding: 20px;
 }
 
-.product-list {
-  display: flex;
-  gap: 20px;
-}
 
-.product-card {
-  border: 1px solid #ccc;
-  padding: 20px;
-  cursor: pointer;
-}
 
 .popup-overlay {
   position: fixed;
@@ -42,11 +33,3 @@
   cursor: pointer;
 }
 
-.buy-btn {
-  background: blue;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 15px;
-}
